@@ -1,6 +1,6 @@
 //
 //  Hexapawn.cpp
-//  LearningHexapawn2
+//  LearningHexapawn
 //
 //  Created by Travis  Bender on 7/14/20.
 //  Copyright © 2020 Travis Bender. All rights reserved.
@@ -124,8 +124,6 @@ HEXNODE * Hexapawn::trainComputer() {
         resetGame();
         //play one game
         root = createTree(root);
-        //cout << "------------------" << endl;
-        cout << (i + 1) << endl;
     }
     return root;
 }
@@ -206,11 +204,6 @@ HEXNODE * Hexapawn::createTree(HEXNODE * node) {
         cout << endl;
     }
     
-    //displayBoard();
-    //cout << endl;
-    
-    //srand((unsigned int) time(0));
-    
     int * moves = nullptr;
     
     //If there is a winner
@@ -260,12 +253,6 @@ HEXNODE * Hexapawn::createTree(HEXNODE * node) {
                 
                 //Create the code
                 code = createCode();
-                
-                /*
-                if (mode == 1) {
-                    cout << "Computer decided to move the \'O\' at space " << moves[begin] << endl;
-                    cout << "to space " << moves[begin + 1] << "." << endl << endl;
-                }*/
 
                 //Check to see if the code matches a code already seen
                 for(int i = 1; i <= node->usedCodes[0]; i++) {
@@ -274,7 +261,6 @@ HEXNODE * Hexapawn::createTree(HEXNODE * node) {
                     }
                 }
                 
-                //badCode = matchesUsed && ((node->left != nullptr && code != node->left->code) && ((node->midLeft != nullptr && code != node->midLeft->code) && ((node->midRight != nullptr && code != node->midRight->code) && (node->right != nullptr && code != node->right->code))));
                 
                 //If have already seen this code
                 if (matchesUsed) {
@@ -297,27 +283,7 @@ HEXNODE * Hexapawn::createTree(HEXNODE * node) {
                 
                 //If bad, reset the board to before a move was chosen
                 if (badCode) {
-                    /*
-                    cout << endl << moves[0] << endl;
-                    int i = 1;
-                    while (i < (moves[i] * 2 + 1) && moves[i] != -1) {
-                        cout << moves[i] << " " << moves[i + 1] << endl;
-                        i += 2;
-                    }
-                    
-                    i = 1;
-                    cout << endl << "Used codes" << endl;
-                    while (i < node->usedCodes[0] + 1) {
-                        cout << node->usedCodes[i] << endl;
-                        i++;
-                    }
-                    
-                    cout << "Computer decided to move the \'O\' at space " << moves[begin] << endl;
-                    cout << "to space " << moves[begin + 1] << "." << endl << endl;
-                    
-                    displayBoard();
-                    */
-                    
+                
                     board[moves[begin] - 1] = start;
                     board[moves[begin + 1] - 1] = end;
                 }
@@ -741,13 +707,4 @@ void Hexapawn::resetGame() {
     board[6] = 'X';
     board[7] = 'X';
     board[8] = 'X';
-}
-
-void Hexapawn::test(int num) {
-    if (num <= 0) {
-        return;
-    } else {
-        cout << rand() % 3 << endl;
-        test(num - 1);
-    }
 }
