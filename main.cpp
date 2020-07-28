@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  LearningHexapawn2
+//  LearningHexapawn
 //
 //  Created by Travis  Bender on 7/14/20.
 //  Copyright © 2020 Travis Bender. All rights reserved.
@@ -18,11 +18,5 @@ int main() {
     //Play the game
     hexapawn.playGame();
     
-    //hexapawn.trainComputer();
-    
-    //hexapawn.test(10);
-    
     return 0;
 }
-
-//Have a problem with verifying moves;
