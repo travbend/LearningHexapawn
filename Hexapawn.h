@@ -1,6 +1,6 @@
 //
 //  Hexapawn.h
-//  LearningHexapawn2
+//  LearningHexapawn
 //
 //  Created by Travis  Bender on 7/14/20.
 //  Copyright © 2020 Travis Bender. All rights reserved.
@@ -68,7 +68,6 @@ public:
     void resetGame();
     //Makes the computer play 100 games to learn winning strategies
     HEXNODE * trainComputer();
-    void test(int num);
 };
 
 #endif /* Hexapawn_h */
